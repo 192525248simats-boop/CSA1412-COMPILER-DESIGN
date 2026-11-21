@@ -1,0 +1,20 @@
+
+#include <stdio.h>
+
+int main() {
+    char a, b, c;
+    int t = 1;
+
+    printf("Enter expression (a+b*c): ");
+    scanf("%c", &a);
+    getchar();
+    getchar();
+    scanf("%c", &b);
+    getchar();
+    scanf("%c", &c);
+
+    printf("t%d = %c * %c\n", t, b, c);
+    printf("t%d = %c + t%d\n", t+1, a, t);
+
+    return 0;
+}

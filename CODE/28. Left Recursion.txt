@@ -1,0 +1,22 @@
+
+#include <stdio.h>
+
+int main() {
+    char A, alpha[50], beta[50];
+
+    printf("Enter non-terminal: ");
+    scanf(" %c", &A);
+
+    printf("Enter alpha: ");
+    scanf("%s", alpha);
+
+    printf("Enter beta: ");
+    scanf("%s", beta);
+
+    printf("\nAfter removing left recursion:\n");
+
+    printf("%c -> %s%c'\n", A, beta, A);
+    printf("%c' -> %s%c' | epsilon\n", A, alpha, A);
+
+    return 0;
+}

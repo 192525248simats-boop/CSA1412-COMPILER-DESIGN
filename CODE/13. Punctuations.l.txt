@@ -1,0 +1,16 @@
+
+%{
+int count = 0;
+%}
+
+%%
+[,;:!?'"(){}-] {count++;}
+\n ;
+%%
+int yywrap(void) {}
+int main()
+{
+printf("\nEnter a string:\n");
+yylex();
+printf("\nNumber of punctuation symbols: %d\n", count);
+}

@@ -1,0 +1,43 @@
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    int n, i, j, used;
+    char lhs[20][10], rhs[20][30];
+
+    printf("Enter number of statements: ");
+    scanf("%d", &n);
+
+    printf("Enter statements (result expression):\n");
+
+    for(i = 0; i < n; i++)
+        scanf("%9s %29s", lhs[i], rhs[i]);
+
+    printf("\nBefore Optimization:\n");
+
+    for(i = 0; i < n; i++)
+        printf("%s = %s\n", lhs[i], rhs[i]);
+
+    printf("\nAfter Dead Code Elimination:\n");
+
+    for(i = 0; i < n; i++)
+    {
+        used = 0;
+
+        for(j = i + 1; j < n; j++)
+        {
+            if(strstr(rhs[j], lhs[i]) != NULL)
+            {
+                used = 1;
+                break;
+            }
+        }
+
+        if(used || i == n - 1)
+            printf("%s = %s\n", lhs[i], rhs[i]);
+    }
+
+    return 0;
+}

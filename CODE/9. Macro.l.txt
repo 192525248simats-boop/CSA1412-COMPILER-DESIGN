@@ -1,0 +1,18 @@
+%{
+int macros = 0, includes = 0;
+%}
+
+%%
+[ \t]*#[ \t]*define([ \t]+[^ \t\n]+)?  { macros++; }
+[ \t]*#[ \t]*include[ \t]*.*           { includes++; }
+\n ;
+
+%%
+int yywrap(void) {}
+int main()
+{
+printf("\nEnter C code:\n");
+yylex();
+printf("\nNumber of #define macros: %d", macros);
+printf("\nNumber of #include statements: %d\n", includes);
+}

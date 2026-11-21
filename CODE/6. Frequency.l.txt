@@ -1,0 +1,17 @@
+
+%{
+#include <stdio.h>
+int count = 0;
+%}
+%%
+
+ram { count++; }
+\n ;
+%%
+int yywrap(void) {}
+int main()
+{
+printf("\nEnter a paragraph:\n");
+yylex();
+printf("\nFrequency of ram: %d\n", count);
+}

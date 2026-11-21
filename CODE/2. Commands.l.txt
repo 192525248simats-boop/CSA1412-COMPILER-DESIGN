@@ -1,0 +1,23 @@
+
+%{
+#include <stdio.h>
+%}
+
+%%
+"//".*                    ;
+"/*"([^*]|\*+[^*/])*\*+"/" ;
+\n                        { printf("\n"); }
+.                         { printf("%s", yytext); }
+%%
+
+int yywrap(void)
+{
+    return 1;
+}
+
+int main()
+{
+    printf("\nEnter C code:\n");
+    yylex();
+    return 0;
+}

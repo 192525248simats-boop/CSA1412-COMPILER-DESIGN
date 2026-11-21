@@ -1,0 +1,46 @@
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    int n, i, j;
+    char lhs[20][10], a[20][10], op[20][5], b[20][10];
+    int flag[20] = {0};
+
+    printf("Enter number of expressions: ");
+    scanf("%d", &n);
+
+    printf("Enter expressions (result operand operator operand):\n");
+
+    for(i = 0; i < n; i++)
+        scanf("%9s %9s %4s %9s", lhs[i], a[i], op[i], b[i]);
+
+    printf("\nBefore Optimization:\n");
+
+    for(i = 0; i < n; i++)
+        printf("%s = %s %s %s\n", lhs[i], a[i], op[i], b[i]);
+
+    printf("\nAfter Optimization:\n");
+
+    for(i = 0; i < n; i++)
+    {
+        if(flag[i])
+            continue;
+
+        printf("%s = %s %s %s\n", lhs[i], a[i], op[i], b[i]);
+
+        for(j = i + 1; j < n; j++)
+        {
+            if(strcmp(a[i], a[j]) == 0 &&
+               strcmp(op[i], op[j]) == 0 &&
+               strcmp(b[i], b[j]) == 0)
+            {
+                printf("%s = %s\n", lhs[j], lhs[i]);
+                flag[j] = 1;
+            }
+        }
+    }
+
+    return 0;
+}

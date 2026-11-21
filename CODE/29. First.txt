@@ -1,0 +1,45 @@
+
+#include <stdio.h>
+#include <ctype.h>
+
+char prod[10][10];
+int n;
+
+void FIRST(char c) {
+    int i;
+
+    if (!isupper(c)) {
+        printf("%c ", c);
+        return;
+    }
+
+    for (i = 0; i < n; i++) {
+        if (prod[i][0] == c) {
+            if (!isupper(prod[i][2]))
+                printf("%c ", prod[i][2]);
+            else
+                FIRST(prod[i][2]);
+        }
+    }
+}
+
+int main() {
+    int i;
+    char c;
+
+    printf("Enter number of productions: ");
+    scanf("%d", &n);
+
+    printf("Enter productions (Example: E=TR):\n");
+    for (i = 0; i < n; i++)
+        scanf("%s", prod[i]);
+
+    printf("Enter non-terminal: ");
+    scanf(" %c", &c);
+
+    printf("FIRST(%c) = { ", c);
+    FIRST(c);
+    printf("}");
+
+    return 0;
+}

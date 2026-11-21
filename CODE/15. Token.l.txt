@@ -1,0 +1,24 @@
+%{
+%}
+%%
+
+"int"|"float"|"char"|"if"|"else"|"for"|"while"|"return" {printf("\nKeyword: %s", yytext);}
+
+[a-zA-Z_][a-zA-Z0-9_]* {printf("\nIdentifier: %s", yytext);}
+
+[0-9]+ {printf("\nNumber: %s", yytext);}
+
+"+"|"-"|"*"|"/"|"=" {printf("\nOperator: %s", yytext);}
+
+";"|","|"("|")"|"{"|"}" {printf("\nPunctuation: %s", yytext);}
+
+[ \t\n]+ ;
+
+. {printf("\nUnknown Token: %s", yytext);}
+%%
+int yywrap(void) {}
+int main()
+{
+printf("\nEnter tokens: ");
+yylex();
+}

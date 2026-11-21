@@ -1,0 +1,18 @@
+%{
+#include <stdio.h>
+%}
+
+%%
+"//".* ;
+"/"([^]|\+[^/])\+"/" ;
+[ ]+ {printf(" ");}
+\n {printf("\n");}
+%%
+int main()
+{
+printf("Enter C program:\n");
+yylex();
+}
+int yywrap()
+{
+}

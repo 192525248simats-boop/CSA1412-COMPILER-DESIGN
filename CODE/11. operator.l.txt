@@ -1,0 +1,17 @@
+%{
+int arith=0, rel=0;
+%}
+%%
+[+\-*/%] {arith++;}
+"=="|"!="|"<="|">="|"<"|">" {rel++;}
+.|\n ;
+%%
+int yywrap(void) { return 1; }
+int main()
+{
+printf("\nEnter an Expression : ");
+yylex();
+printf("\nArithmetic Operators = %d",arith);
+printf("\nRelational Operators = %d\n",rel);
+return 0;
+}

@@ -1,0 +1,28 @@
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char str[500];
+    int i, count = 0;
+
+    printf("Enter C code (type END to stop):\n");
+
+    while(fgets(str, 500, stdin))
+    {
+        if(strcmp(str, "END\n") == 0 || strcmp(str, "END") == 0)
+            break;
+
+        for(i = 0; str[i] != '\0'; i++)
+        {
+            if(str[i] == '/' && 
+              (str[i+1] == '/' || str[i+1] == '*'))
+                count++;
+        }
+    }
+
+    printf("Total Comments = %d\n", count);
+
+    return 0;
+}

@@ -1,0 +1,19 @@
+%{
+int positive = 0, negative = 0;
+%}
+
+%%
+
+-[0-9]+ { negative++; }
+[+]?[0-9]+ { positive++; }
+[ \t\n,]+ ;
+
+%%
+int yywrap(void) {}
+int main()
+{
+printf("\nEnter numbers separated by spaces: ");
+yylex();
+printf("\nPositive Numbers Count: %d", positive);
+printf("\nNegative Numbers Count: %d\n", negative);
+}

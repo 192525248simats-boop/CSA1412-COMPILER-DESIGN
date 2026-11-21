@@ -1,0 +1,15 @@
+
+#include <stdio.h>
+int main()
+{
+    char op, a, b, res;
+    printf("Enter operator: ");
+    scanf(" %c", &op);
+    printf("Enter two operands: ");
+    scanf(" %c %c", &a, &b);
+    printf("Enter result: ");
+    scanf(" %c", &res);
+    printf("\nOperator\tArg1\tArg2\tResult\n");
+    printf("%c\t\t%c\t%c\t%c", op, a, b, res);
+    return 0;
+}

@@ -1,0 +1,20 @@
+
+%{
+int upper = 0, lower = 0;
+%}
+%%
+
+[A-Z] { upper++; }
+[a-z] { lower++; }
+[\t\n ]+ ;
+. ;
+
+%%
+int yywrap(void) {}
+int main()
+{
+printf("\nEnter a string: ");
+yylex();
+printf("\nUppercase Letters: %d", upper);
+printf("\nLowercase Letters: %d\n", lower);
+}

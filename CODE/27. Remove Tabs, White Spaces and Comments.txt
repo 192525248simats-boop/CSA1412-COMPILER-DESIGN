@@ -1,0 +1,34 @@
+
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+int main()
+{
+    char str[500];
+    int i;
+
+    printf("Enter the code:\n");
+    fgets(str, 500, stdin);
+
+    printf("\nAfter Removing Tabs, Spaces and Comments:\n");
+
+    for(i = 0; str[i] != '\0'; i++)
+    {
+        if(str[i] == '/' && str[i+1] == '/')
+            break;
+
+        if(str[i] == '/' && str[i+1] == '*')
+        {
+            i += 2;
+            while(str[i] != '\0' &&
+                 !(str[i] == '*' && str[i+1] == '/'))
+                i++;
+            i++;
+        }
+        else if(str[i] != ' ' && str[i] != '\t')
+            printf("%c", str[i]);
+    }
+
+    return 0;
+}

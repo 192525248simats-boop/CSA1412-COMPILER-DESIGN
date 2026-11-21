@@ -1,0 +1,13 @@
+%{
+%}
+%%
+
+https?"://"[^\n]+ {printf("URL is Valid\n");}
+.\n {printf("URL is Invalid\n");}
+%%
+int yywrap(void) {}
+int main()
+{
+    printf("Enter URL:\n");
+    yylex();
+}

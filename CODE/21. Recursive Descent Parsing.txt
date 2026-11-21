@@ -1,0 +1,41 @@
+
+#include <stdio.h>
+#include <string.h>
+
+char input[20];
+int i = 0;
+
+void E();
+void T();
+
+void E()
+{
+    printf("E -> T");
+
+    T();
+
+    if (input[i] == '+')
+    {
+        printf(" + E");
+        i++;
+        E();
+    }
+}
+
+void T()
+{
+    printf("\nT -> id");
+    i += 2;
+}
+
+int main()
+{
+    printf("Enter input: ");
+    scanf("%19s", input);
+
+    printf("\nParsing Steps:\n");
+    E();
+
+    printf("\n");
+    return 0;
+}
