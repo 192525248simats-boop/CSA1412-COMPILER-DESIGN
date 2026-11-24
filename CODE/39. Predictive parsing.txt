@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s[20];
+    int i = 0;
+
+    printf("Enter input string: ");
+    scanf("%s", s);
+
+    while(s[i] == 'i') {
+        i++;
+
+        if(s[i] == '+')
+            i++;
+        else
+            break;
+    }
+
+    if(i == strlen(s))
+        printf("String Accepted");
+    else
+        printf("String Rejected");
+
+    return 0;
+}

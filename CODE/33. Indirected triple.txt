@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    int i;
+    int ptr[] = {0, 1, 2};
+
+    char *op[] = {"+", "*", "="};
+    char *a[] = {"a", "t1", "t2"};
+    char *b[] = {"b", "c", "t3"};
+
+    printf("Triple Table:\n");
+    printf("No.\tOp\tArg1\tArg2\n");
+
+    for(i = 0; i < 3; i++)
+        printf("%d\t%s\t%s\t%s\n", i, op[i], a[i], b[i]);
+
+    printf("\nPointer Table:\n");
+
+    for(i = 0; i < 3; i++)
+        printf("%d -> %d\n", i, ptr[i]);
+
+    return 0;
+}

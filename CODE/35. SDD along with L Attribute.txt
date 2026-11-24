@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    int a, b, c;
+
+    printf("Enter a number: ");
+    scanf("%d", &a);
+
+    b = a * 2;
+    c = b + 5;
+
+    printf("Inherited attribute: %d\n", b);
+    printf("Synthesized attribute: %d\n", c);
+
+    return 0;
+}

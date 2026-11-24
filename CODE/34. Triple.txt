@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    int i;
+    char *op[] = {"+", "*", "="};
+    char *a[] = {"a", "(0)", "(1)"};
+    char *b[] = {"b", "c", "-"};
+
+    printf("Triple Table:\n");
+    printf("No.\tOp\tArg1\tArg2\n");
+
+    for(i = 0; i < 3; i++)
+        printf("%d\t%s\t%s\t%s\n", i, op[i], a[i], b[i]);
+
+    return 0;
+}

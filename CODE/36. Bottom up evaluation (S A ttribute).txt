@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main() {
+    int a, b, result;
+
+    printf("Enter two numbers: ");
+    scanf("%d%d", &a, &b);
+
+    printf("\nBottom-Up Evaluation:\n");
+
+    printf("T -> num = %d\n", a);
+    printf("E -> T = %d\n", a);
+    printf("T -> num = %d\n", b);
+
+    result = a + b;
+
+    printf("E -> E + T = %d\n", result);
+    printf("Final Result = %d\n", result);
+
+    return 0;
+}
